@@ -39,7 +39,7 @@ cpu = psutil.cpu_percent(interval=1)
 ram = psutil.virtual_memory()
 
 try:
-    mydb = mysql.connector.connect(host = 'localhost', user = 'root',password = '@myLOVEisthe0506',database = 'PowerTechSolutions')
+    mydb = mysql.connector.connect(host = '3.234.2.175', user = 'root',password = 'urubu100',database = 'PowerTechSolutions')
     if mydb.is_connected():
         db_info = mydb.get_server_info()
         mycursor = mydb.cursor()
