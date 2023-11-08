@@ -10,7 +10,7 @@ import Usuario
 import UsuarioRepositorio
 import java.time.LocalDateTime
 import java.time.LocalTime
-import javax.swing.JOptionPane
+import java.util.*
 
 open class Main {
     companion object {
@@ -28,17 +28,21 @@ open class Main {
             maquina_repositorio.iniciar()
             usuario_repositorio.iniciar()
 
-            JOptionPane.showMessageDialog(null,"Bem vindo a PowerTech Por favor realize o login para utilizar nosso sistema")
+            val sn = Scanner(System.`in`)
 
-            var Cpf:String = JOptionPane.showInputDialog(null,"Insira seu Cpf")
+            println("Bem vindo a PowerTech Por favor realize o login para utilizar nosso sistema")
 
-            if (usuario_repositorio.autenticar(Cpf)){
+            println("Insira seu Cpf: ")
+            var Cpf:String = sn.next()
+
+                if (usuario_repositorio.autenticar(Cpf)){
 
                 var funcionario:Usuario = usuario_repositorio.resgatarinfo(Cpf)
 
                 var maquinas:String = maquina_repositorio.pegarMaquinas(funcionario.IDUsuario)
+                    println("Qual a numeração da maquina e está que está instalando o serviço? $maquinas")
 
-                var maquinaEscolhida = JOptionPane.showInputDialog("Qual a numeração da maquina e está que está instalando o serviço? $maquinas").toInt()
+                    var maquinaEscolhida = sn.next().toInt()
 
                 var servicos:MutableList<ServicosMonitorados> = servicoMonitoradorepositorio.buscarComponentes(maquinaEscolhida)
 
