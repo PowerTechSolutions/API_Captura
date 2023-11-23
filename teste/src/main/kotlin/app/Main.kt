@@ -1,6 +1,8 @@
 package app
 
 import Captura
+import CapturaRede
+import ConexaoSqlServer
 import MaquinasRepositorio
 import Monitoramento_RAWRepositorio
 import ServicoCadastradoRepositorio
@@ -23,10 +25,10 @@ open class Main {
             val servicoMonitoradorepositorio = ServicoMonitoradoRepositorio()
             val servicoCadastradorepositorio = ServicoCadastradoRepositorio()
 
-            servicoCadastradorepositorio.iniciar()
-            servicoMonitoradorepositorio.iniciar()
-            maquina_repositorio.iniciar()
-            usuario_repositorio.iniciar()
+            servicoCadastradorepositorio.iniciarSql()
+            servicoMonitoradorepositorio.iniciarSql()
+            maquina_repositorio.iniciarSql()
+            usuario_repositorio.iniciarSql()
 
             val sn = Scanner(System.`in`)
 
@@ -91,7 +93,7 @@ open class Main {
             }
 
             var repositorio = Monitoramento_RAWRepositorio()
-            repositorio.iniciar()
+            repositorio.iniciarSql()
 
             var captura = Captura
 

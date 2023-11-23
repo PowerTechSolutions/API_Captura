@@ -5,8 +5,8 @@ class ServicoMonitoradoRepositorio {
 
     lateinit var jdbcTemplate: JdbcTemplate
 
-    fun iniciar(){
-        jdbcTemplate = Conexao.jdbcTemplate!!
+    fun iniciarSql(){
+        jdbcTemplate = ConexaoSqlServer.jdbcTemplate!!
     }
 
     fun buscarComponentes(FKMaquina:Int):MutableList<ServicosMonitorados>{

@@ -1,16 +1,14 @@
 import org.springframework.jdbc.core.BeanPropertyRowMapper
 import org.springframework.jdbc.core.JdbcTemplate
-import java.time.LocalDate
 import java.time.LocalDateTime
-import java.time.LocalTime
 import java.time.format.DateTimeFormatter
 
 class Monitoramento_RAWRepositorio {
 
     lateinit var jdbcTemplate: JdbcTemplate
 
-    fun iniciar(){
-        jdbcTemplate = Conexao.jdbcTemplate!!
+    fun iniciarSql(){
+        jdbcTemplate = ConexaoSqlServer.jdbcTemplate!!
     }
 
     fun buscarDataRede(FKMaquina: Int):LocalDateTime{

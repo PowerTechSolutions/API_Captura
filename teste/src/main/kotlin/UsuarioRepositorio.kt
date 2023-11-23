@@ -5,8 +5,8 @@ class UsuarioRepositorio {
 
     lateinit var jdbcTemplate: JdbcTemplate
 
-    fun iniciar(){
-        jdbcTemplate = Conexao.jdbcTemplate!!
+    fun iniciarSql(){
+        jdbcTemplate = ConexaoSqlServer.jdbcTemplate!!
     }
 
     fun autenticar(cpf:String):Boolean{

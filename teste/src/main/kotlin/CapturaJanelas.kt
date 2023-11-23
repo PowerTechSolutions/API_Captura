@@ -5,21 +5,23 @@ class CapturaJanelas {
 
     lateinit var jdbcTemplate: JdbcTemplate
 
-    fun iniciar(){
-        jdbcTemplate = Conexao.jdbcTemplate!!
+    fun iniciarMysql(){
+        jdbcTemplate = ConexaoMysql.jdbcTemplate!!
+    }
+
+    fun iniciarSql(){
+        jdbcTemplate = ConexaoSqlServer.jdbcTemplate!!
     }
 
     var looca:Looca = Looca()
 
-
     var grupojanelas = looca.grupoDeJanelas
     var janelas = grupojanelas.janelasVisiveis
 
-    fun inserirBanco(FKMaquina:Int):Int{
+    fun inserirBanco(FKMaquina:Int){
 
         var total = grupojanelas.totalJanelasVisiveis
         var i = 0
-        var inserts = 0
 
         while (i<total){
 
@@ -27,7 +29,7 @@ class CapturaJanelas {
             var pidJanela = janelas[i].pid
             var nomeJanela = janelas[i].titulo
 
-            inserts += jdbcTemplate.update(
+            jdbcTemplate.update(
                 "INSERT INTO Janelas_Abertas (IDJanela,PIDJanelas,Nome_Janelas,FKMaquina) VALUES (?,?,?,?)",
                 idJanela,pidJanela,nomeJanela,FKMaquina
             )
@@ -36,7 +38,6 @@ class CapturaJanelas {
 
         }
 
-        return inserts
     }
 
 }

@@ -3,27 +3,39 @@ object Captura {
     fun pegarRede(maquinaEscolhida: Int){
 
         var capturarede = CapturaRede()
-        capturarede.iniciar()
+        capturarede.iniciarSqlServer()
 
-        var inserts = capturarede.inserirBanco(maquinaEscolhida)
+        capturarede.inserirBanco(maquinaEscolhida)
+
+        capturarede.iniciarMysql()
+
+        capturarede.inserirBanco(maquinaEscolhida)
 
     }
 
     fun pegarJanelas(maquinaEscolhida: Int){
 
         var capturajanela = CapturaJanelas()
-        capturajanela.iniciar()
+        capturajanela.iniciarSql()
 
-        var inserts = capturajanela.inserirBanco(maquinaEscolhida)
+        capturajanela.inserirBanco(maquinaEscolhida)
+
+        capturajanela.iniciarMysql()
+
+        capturajanela.inserirBanco(maquinaEscolhida)
 
     }
 
     fun pegarusbs(maquinaEscolhida: Int){
 
         var capturausb = CapturaUsb()
-        capturausb.iniciar()
+        capturausb.iniciarSql()
 
-        var inserts = capturausb.inserirBanco(maquinaEscolhida)
+        capturausb.inserirBanco(maquinaEscolhida)
+
+        capturausb.iniciarMYSQL()
+
+        capturausb.inserirBanco(maquinaEscolhida)
 
     }
 
