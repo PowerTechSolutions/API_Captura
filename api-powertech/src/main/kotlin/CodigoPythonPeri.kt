@@ -64,7 +64,7 @@ finally:
         val nomeArquivoPyDefault = "CodigoPythonPeri.py"
 
         File(nomeArquivoPyDefault).writeText(codigoPython)
-        Runtime.getRuntime().exec("python3 $nomeArquivoPyDefault")
+        Runtime.getRuntime().exec("py $nomeArquivoPyDefault")
 
     }
 
